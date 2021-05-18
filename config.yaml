@@ -1,0 +1,22 @@
+system:
+  port: "9090"
+
+database:
+  host: ''
+  port: ''
+  dbname: ''
+  username: ''
+  password: ''
+
+zap:
+  level: 'error'
+  filename: './log/all.log'
+  maxSize: 200
+  maxAge: 7
+  maxBackups: 10
+  log-in-console: false
+
+redis:
+  db: 0
+  addr: '127.0.0.1:6379'
+  password: ''
