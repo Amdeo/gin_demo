@@ -1,0 +1,26 @@
+version: "2"
+services:
+  db:
+    container_name: mysql
+    image: registry.cn-hangzhou.aliyuncs.com/fluid_device/mysql:8.0.20
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=Lbr1234% # 数据库密码
+      - MYSQL_DATABASE=admin # 数据库名称
+      - MYSQL_USER=xiaoyuan # 数据库用户名
+      - MYSQL_PASSWORD=Lbr1234% # 用户密码
+    volumes:
+      - ./deploy/mysql/data:/var/lib/mysql:rw
+      - ./deploy/mysql/init-data:/docker-entrypoint-initdb.d
+    ports:
+      - "3307:3306"
+    security_opt:
+      - seccomp:unconfined
+    restart: always
+
+  redis:
+    container_name: redis
+    image: registry.cn-hangzhou.aliyuncs.com/fluid_device/redis:6.0.5
+    ports:
+      - "6380:6379"
+    restart: always

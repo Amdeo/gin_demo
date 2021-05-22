@@ -8,8 +8,17 @@ import (
 )
 
 var (
-	GConfig config.ServerConfig
-	GViper  *viper.Viper
-	GDb     *gorm.DB
-	GRedis  *redis.Client
+	Config config.ServerConfig
+	Viper  *viper.Viper
+	DB     *gorm.DB
+	Redis  *redis.Client
 )
+
+//type globalVar struct {
+//	conf config.ServerConfig
+//	viper *viper.Viper
+//	db *gorm.DB
+//	cache *redis.Client
+//}
+//
+//var G = new(globalVar)

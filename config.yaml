@@ -2,14 +2,14 @@ system:
   port: "9090"
 
 database:
-  host: ''
-  port: ''
-  dbname: ''
-  username: ''
-  password: ''
+  host: '127.0.0.1'
+  port: 3307
+  dbname: 'admin'
+  username: 'xiaoyuan'
+  password: 'Lbr1234%'
 
 zap:
-  level: 'error'
+  level: 'debug'
   filename: './log/all.log'
   maxSize: 200
   maxAge: 7
@@ -18,5 +18,5 @@ zap:
 
 redis:
   db: 0
-  addr: '127.0.0.1:6379'
+  addr: '127.0.0.1:6380'
   password: ''

@@ -1,17 +1,19 @@
 package core
 
 import (
+	RcRouter "server/apps/Rc/router"
+
 	"github.com/gin-gonic/gin"
-	"server/router"
 )
 
 func SetupRouter() *gin.Engine {
 	Router := gin.Default()
 	// 增加
 	Router.Use(GinLogger(), GinRecovery(true))
-	PrivateGroup := Router.Group("")
+
+	RcGroup := Router.Group("test")
 	{
-		router.InitUserRouter(PrivateGroup)
+		RcRouter.Router(RcGroup)
 	}
 	return Router
 }

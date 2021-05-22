@@ -2,13 +2,16 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"server/api"
+	"server/apps/Rc/api"
 )
+
+func Router(Router *gin.RouterGroup) {
+	InitUserRouter(Router)
+}
 
 func InitUserRouter(Router *gin.RouterGroup) {
 	UserRouter := Router.Group("user")
 	{
-		UserRouter.POST("/AccountLogin", api.AccountLogin)
-		UserRouter.POST("/register", api.Register)
+		UserRouter.GET("/login", api.Login)
 	}
 }

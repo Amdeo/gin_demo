@@ -3,11 +3,11 @@ package core
 import (
 	"github.com/go-redis/redis"
 	"go.uber.org/zap"
-	"server/global"
+	g "server/global"
 )
 
 func Redis() {
-	redisCfg := global.GConfig.Redis
+	redisCfg := g.Config.Redis
 	client := redis.NewClient(&redis.Options{
 		Addr:     redisCfg.Addr,
 		Password: redisCfg.Password, // no password set
@@ -18,6 +18,6 @@ func Redis() {
 		zap.L().Error("redis connect ping failed, err:", zap.Any("err", err))
 	} else {
 		zap.L().Info("redis connect ping response:", zap.String("pong", pong))
-		global.GRedis = client
+		g.Redis = client
 	}
 }
